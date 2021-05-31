@@ -12,8 +12,7 @@ using Application.Activities;
 namespace API.Controllers
 {
     public class ActivitiesController : BaseApiController
-    {
-        
+    {     
         [HttpGet]
         public async Task<ActionResult<List<Activity>>> GetActivities()
         {
@@ -38,7 +37,7 @@ namespace API.Controllers
             return Ok(await Mediator.Send(new Edit.Command{Activity=activity}));
         }
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(Guid id)
+         public async Task<IActionResult> Delete(Guid id)
         {
             return Ok(await Mediator.Send(new Delete.Command{Id=id}));
         }
